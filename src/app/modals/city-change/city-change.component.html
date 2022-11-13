@@ -1,0 +1,33 @@
+<div class="wrapper d-flex flex-col height">
+  <div class="header">
+    <div class="d-flex justify-between align-center pr-4 pl-4 pt-4">
+      <div class="fz-5 fw600">Выберите город</div>
+      <div>
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon class="fz-5">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <mat-selection-list [multiple]="false" class="list spacer">
+    <mat-list-option
+      *ngFor="let city of getCity"
+      [class.active]="selectedCity == city"
+      (click)="selectedCity = city"
+    >
+      <mat-radio-group
+        aria-label="Select an option"
+        [(ngModel)]="selectedCity"
+        [value]="selectedCity"
+      >
+        <div class="city d-flex width justify-between pointer">
+          <div>{{city}}</div>
+          <mat-radio-button [value]="city"></mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </mat-list-option>
+  </mat-selection-list>
+  <div class="footer">
+
+  </div>
+</div>

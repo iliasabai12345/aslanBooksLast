@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "book-store-c7ead": {
+      "hosting": {
+        "aslanAngularBooks": [
+          "book-store-c7ead"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "book-store-c7ead"
+  }
+}

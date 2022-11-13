@@ -1,0 +1,27 @@
+.wrapper {
+}
+
+.list {
+  overflow-y: scroll;
+}
+
+.active {
+  background-color: #fdffde;
+}
+
+.header {
+  height: 60px;
+}
+
+.footer {
+  height: 50px;
+}
+
+mat-selection-list{
+  ::ng-deep{
+    .mat-list-text {
+      padding-right: 0 !important;
+    }
+  }
+}
+
