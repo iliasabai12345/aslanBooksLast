@@ -3,31 +3,50 @@
     <div class="d-flex justify-between align-center pr-4 pl-4 pt-4">
       <div class="fz-5 fw600">Выберите город</div>
       <div>
-        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a vertical three dot icon"
+          (click)="close()"
+        >
           <mat-icon class="fz-5">close</mat-icon>
         </button>
       </div>
     </div>
+    <div class="mt-4 ml-4 mr-4">
+      <input
+        type="search"
+        class="width"
+        [(ngModel)]="filterCity"
+        placeholder="Найти город"
+      >
+    </div>
   </div>
   <mat-selection-list [multiple]="false" class="list spacer">
-    <mat-list-option
-      *ngFor="let city of getCity"
-      [class.active]="selectedCity == city"
-      (click)="selectedCity = city"
-    >
-      <mat-radio-group
-        aria-label="Select an option"
-        [(ngModel)]="selectedCity"
-        [value]="selectedCity"
+    <ng-container *ngIf="cities | async as cities;else spinnerRef">
+      <mat-list-option
+        *ngFor="let city of cities | cityChangeFilter:filterCity"
+        [class.active]="selectedCity == city"
+        (click)="selectedCity = city.name"
       >
-        <div class="city d-flex width justify-between pointer">
-          <div>{{city}}</div>
-          <mat-radio-button [value]="city"></mat-radio-button>
-        </div>
-      </mat-radio-group>
-    </mat-list-option>
+        <mat-radio-group
+          aria-label="Select an option"
+          [(ngModel)]="selectedCity"
+          [value]="selectedCity"
+        >
+          <div class="city d-flex width justify-between pointer">
+            <div>{{city.name}}</div>
+            <mat-radio-button [value]="city.name"></mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </mat-list-option>
+    </ng-container>
   </mat-selection-list>
-  <div class="footer">
-
+  <div class="footer d-flex">
+    <button mat-button color="warn" class="spacer fw600" (click)="close()">Отмена</button>
+    <button mat-button color="primary" class="spacer fw600" (click)="save()">Сохранить</button>
   </div>
 </div>
+
+<ng-template #spinnerRef>
+  <mat-spinner></mat-spinner>
+</ng-template>

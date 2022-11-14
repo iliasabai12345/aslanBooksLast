@@ -10,11 +10,11 @@
 }
 
 .header {
-  height: 60px;
+  height: 120px;
 }
 
 .footer {
-  height: 50px;
+  height: 70px;
 }
 
 mat-selection-list{
@@ -25,3 +25,10 @@ mat-selection-list{
   }
 }
 
+input {
+  height: 32px;
+  border-radius: .5rem;
+  border: 1px solid grey;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

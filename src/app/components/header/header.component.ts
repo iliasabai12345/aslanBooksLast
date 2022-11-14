@@ -8,7 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  city: string = 'Алматы';
   constructor(public dialog: MatDialog) {
   }
 
@@ -18,12 +18,13 @@ export class HeaderComponent implements OnInit {
   openCityChangeModal(): void {
     const dialogRef = this.dialog.open(CityChangeComponent, {
       width: '400px',
-      height: '700px'
-      // data: {name: this.name, animal: this.animal},
+      height: '700px',
+      data: {selectedCity: this.city},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.animal = result;
+      if (result?.length)
+        this.city = result;
     });
   }
 }
