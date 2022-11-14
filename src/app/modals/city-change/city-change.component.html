@@ -25,7 +25,7 @@
     <ng-container *ngIf="cities | async as cities;else spinnerRef">
       <mat-list-option
         *ngFor="let city of cities | cityChangeFilter:filterCity"
-        [class.active]="selectedCity == city"
+        [class.active]="selectedCity == city.name"
         (click)="selectedCity = city.name"
       >
         <mat-radio-group
