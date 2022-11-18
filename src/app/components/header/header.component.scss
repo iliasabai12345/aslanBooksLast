@@ -26,3 +26,14 @@
 .right-content {
 
 }
+
+.profile {
+  height: 77px;
+}
+
+.menu_btn {
+  font-weight: 600;
+  &:hover {
+    background: var(--light_yellow);
+  }
+}

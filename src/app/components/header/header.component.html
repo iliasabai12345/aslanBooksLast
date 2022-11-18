@@ -22,15 +22,19 @@
               fill="white"/>
           </svg>
         </div>
-        <div class="text-white fz-5 fw600">{{city}}</div>
+        <div class="text-white fz-4 fw600">{{city}}</div>
       </div>
       <div
         class="profile d-flex align-center gap-2 pointer"
+        [matMenuTriggerFor]="menu"
       >
         <div>
           <img class="circle-border" src="https://cdn.f.kz/img/no_photo120.jpg" alt="img" width="40px" height="40px">
         </div>
-        <div class="text-white">Войти</div>
+        <div
+          class="text-white"
+        >Войти
+        </div>
       </div>
       <div class="bucket d-flex gap-2 align-center pointer">
         <div class="d-flex align-center">
@@ -44,3 +48,49 @@
     </div>
   </div>
 </div>
+
+<mat-menu #menu="matMenu">
+  <button
+    mat-menu-item
+    class="menu_btn"
+  >
+    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>
+    Войти
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+    (click)="openSignUpModal()"
+  >
+    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="how_to_reg"></mat-icon>
+    Регистрация
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+  >
+    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="auto_awesome_mosaic"></mat-icon>
+    Мой раздел
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+  >
+    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon>
+    Мои заказы
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+  >
+    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="favorite"></mat-icon>
+    Избранные
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+  >
+    <mat-icon color="primary" aria-hidden="true" aria-label="Example home icon" fontIcon="contacts"></mat-icon>
+    Контакты
+  </button>
+</mat-menu>
