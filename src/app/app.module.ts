@@ -20,6 +20,7 @@ import {getStorage, provideStorage} from '@angular/fire/storage';
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 import {HeaderModule} from "./components/header/header.module";
 import {FooterModule} from "./components/footer/footer.module";
+import {MainModule} from "./pages/main/main.module";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {FooterModule} from "./components/footer/footer.module";
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
     HeaderModule,
-    FooterModule
+    FooterModule,
+    MainModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService,

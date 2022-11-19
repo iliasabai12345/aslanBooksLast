@@ -8,6 +8,7 @@ import {CityChangeModule} from "../../modals/city-change/city-change.module";
 import {MatIconModule} from "@angular/material/icon";
 import {SignUpModule} from "../../modals/sign-up/sign-up.module";
 import {SignInModule} from "../../modals/sign-in/sign-in.module";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {SignInModule} from "../../modals/sign-in/sign-in.module";
     CityChangeModule,
     MatIconModule,
     SignUpModule,
-    SignInModule
+    SignInModule,
+    FormsModule
   ],
   exports: [HeaderComponent]
 })

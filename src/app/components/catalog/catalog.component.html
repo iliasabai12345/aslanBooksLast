@@ -1,0 +1,10 @@
+<div class="wrapper mt-4">
+  <div class="container d-flex justify-between">
+    <div
+      *ngFor="let catalog of catalog"
+      class="catalog"
+    >
+      <img width="200" [src]="catalog.src" alt="img">
+    </div>
+  </div>
+</div>
