@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {SignUpComponent} from "../../modals/sign-up/sign-up.component";
 import {UserService} from "../../shared/services/user.service";
 import {SignInComponent} from "../../modals/sign-in/sign-in.component";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import {SignInComponent} from "../../modals/sign-in/sign-in.component";
 export class HeaderComponent implements OnInit {
   city: string = 'Алматы';
   constructor(public dialog: MatDialog,
+              private authService: AuthService,
               private userService: UserService) {
   }
 
@@ -60,5 +62,9 @@ export class HeaderComponent implements OnInit {
       if (result?.length)
         this.city = result;
     });
+  }
+
+  logout(): void {
+    this.authService.SignOut().then();
   }
 }

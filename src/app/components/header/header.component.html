@@ -52,6 +52,7 @@
 
 <mat-menu #menu="matMenu">
   <button
+    *ngIf="!userName"
     mat-menu-item
     class="menu_btn"
     (click)="signIn()"
@@ -62,6 +63,7 @@
   <button
     mat-menu-item
     class="menu_btn"
+    *ngIf="!userName"
     (click)="openSignUpModal()"
   >
     <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="how_to_reg"></mat-icon>
@@ -70,6 +72,16 @@
   <button
     mat-menu-item
     class="menu_btn"
+    *ngIf="userName"
+    (click)="logout()"
+  >
+    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="logout"></mat-icon>
+    Выйти
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+    *ngIf="userName"
   >
     <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="auto_awesome_mosaic"></mat-icon>
     Мой раздел
@@ -77,6 +89,7 @@
   <button
     mat-menu-item
     class="menu_btn"
+    *ngIf="userName"
   >
     <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon>
     Мои заказы
@@ -84,6 +97,7 @@
   <button
     mat-menu-item
     class="menu_btn"
+    *ngIf="userName"
   >
     <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="favorite"></mat-icon>
     Избранные
