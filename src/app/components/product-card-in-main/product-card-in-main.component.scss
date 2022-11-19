@@ -1,0 +1,51 @@
+.wrapper {
+  width: 228px;
+  height: 390px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #fdfdfd;
+  overflow: hidden;
+  margin-bottom: 50px;
+  transition: .2s ease;
+
+  &:hover {
+    transition: .2s ease;
+    height: 440px;
+    margin-bottom: 0;
+  }
+
+  &:hover .to-cart {
+    opacity: 1;
+    transition: .2s;
+  }
+}
+
+.title {
+  color: #0a78d6;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--brand_yellow);
+  }
+}
+
+.description {
+  text-align: center;
+  font-size: 10px;
+  color: #777;
+}
+
+.price {
+  font-size: 14px;
+  color: #af0000;
+}
+
+.to-cart {
+  width: 100%;
+  background: var(--brand_yellow);
+  border-radius: 1rem;
+  opacity: 0;
+  transition: .2s;
+}

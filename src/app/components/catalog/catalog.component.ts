@@ -14,12 +14,12 @@ export class CatalogComponent implements OnInit {
   }
 
   get catalog() {
-    return [
-      {src: 'assets/images/brain.jpg'},
-      {src: 'assets/images/antidepresant.jpg'},
-      {src: 'assets/images/logic.jpg'},
-      {src: 'assets/images/menshe-200.jpg'},
-      {src: 'assets/images/parents.jpg'}
+    return  [
+      {src:'assets/images/antidepresant.jpg'},
+      {src:'assets/images/brain.jpg'},
+      {src:'assets/images/logic.jpg'},
+      {src:'assets/images/menshe-200.jpg'},
+      {src:'assets/images/parents.jpg'}
     ]
   }
 

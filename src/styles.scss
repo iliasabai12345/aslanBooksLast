@@ -10,6 +10,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
 /* You can add global styles to this file, and also import other style files */
 
 :root {
@@ -519,4 +523,20 @@ mat-spinner {
 
 .scroll {
   overflow-y: scroll;
+}
+
+.title-of-main-products {
+  font-size: 18px;
+  color: #0a78d6;
+  text-decoration: none;
+  cursor: pointer;
+  width: fit-content;
+
+  &:hover {
+    color: var(--brand_yellow);
+  }
+}
+
+.content-center {
+  margin: 0 auto;
 }
