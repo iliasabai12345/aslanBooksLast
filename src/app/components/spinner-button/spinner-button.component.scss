@@ -1,0 +1,18 @@
+mat-spinner {
+  width: 28px !important;
+  height: 28px !important;
+  position: absolute;
+
+  ::ng-deep {
+    svg {
+      width: 28px !important;
+      height: 28px !important;
+    }
+  }
+}
+
+.main-btn {
+  height: 40px !important;
+  display: flex;
+  justify-content: center;
+}

@@ -4,11 +4,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor() {
-  }
-
   getUser() {
-    return JSON.parse(localStorage.getItem('user')!);
+    return JSON.parse(localStorage.getItem('currentUser')!);
   }
 }

@@ -3,6 +3,7 @@ import {CityChangeComponent} from "../../modals/city-change/city-change.componen
 import {MatDialog} from "@angular/material/dialog";
 import {SignUpComponent} from "../../modals/sign-up/sign-up.component";
 import {UserService} from "../../shared/services/user.service";
+import {SignInComponent} from "../../modals/sign-in/sign-in.component";
 
 @Component({
   selector: 'app-header',
@@ -11,13 +12,15 @@ import {UserService} from "../../shared/services/user.service";
 })
 export class HeaderComponent implements OnInit {
   city: string = 'Алматы';
-
   constructor(public dialog: MatDialog,
               private userService: UserService) {
   }
 
   ngOnInit(): void {
-    console.log(this.userService.getUser().displayName);
+  }
+
+  get userName() {
+    return this.userService.getUser()?.displayName;
   }
 
   openCityChangeModal(): void {
@@ -37,6 +40,19 @@ export class HeaderComponent implements OnInit {
     const dialogRef = this.dialog.open(SignUpComponent, {
       width: '400px',
       height: '350px',
+      data: {selectedCity: this.city},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result?.length)
+        this.city = result;
+    });
+  }
+
+  signIn() {
+    const dialogRef = this.dialog.open(SignInComponent, {
+      width: '400px',
+      height: '250px',
       data: {selectedCity: this.city},
     });
 

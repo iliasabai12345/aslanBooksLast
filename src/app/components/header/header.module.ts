@@ -7,6 +7,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {CityChangeModule} from "../../modals/city-change/city-change.module";
 import {MatIconModule} from "@angular/material/icon";
 import {SignUpModule} from "../../modals/sign-up/sign-up.module";
+import {SignInModule} from "../../modals/sign-in/sign-in.module";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {SignUpModule} from "../../modals/sign-up/sign-up.module";
     MatButtonModule,
     CityChangeModule,
     MatIconModule,
-    SignUpModule
+    SignUpModule,
+    SignInModule
   ],
   exports: [HeaderComponent]
 })

@@ -1,0 +1,14 @@
+<button
+  mat-raised-button
+  [color]="'primary'"
+  class="main-btn width"
+  (click)="submitClick()"
+  [disabled]="disabled"
+>
+  <ng-container *ngIf="loading; else spinner">
+    {{value}}
+  </ng-container>
+  <ng-template #spinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</button>

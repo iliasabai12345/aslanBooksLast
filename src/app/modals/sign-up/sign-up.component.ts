@@ -1,17 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../shared/services/auth.service";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Loader} from "../../shared/clases/loader";
-import {UserService} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -21,27 +20,52 @@ export class SignUpComponent implements OnInit {
   readonly loader = new Loader();
 
   constructor(public authService: AuthService,
-              private userService:UserService,
               public dialogRef: MatDialogRef<SignUpComponent>,
               public afAuth: AngularFireAuth) {
   }
 
-  ngOnInit(): void {
-    console.log(this.userService.getUser())
-    this.authService.SendVerificationMail().then(res => console.log(res));
-  }
+  /*  ngAfterViewInit(): void {
+      const timeout = setTimeout(() => {
+        // @ts-ignore
+        window['recaptchaVerifier'] = new RecaptchaVerifier('recaptcha-container', {
+          'size': 'invisible'
+        }, this.auth);
+        clearTimeout(timeout);
+      }, 500);
+    }*//*todo otp verification*/
 
   SignUp(email: string, password: string, name: string) {
     this.loader.on();
-    return this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result: any) => {
-        this.authService.SetUserData(result.user, name)
-          .then(() => this.dialogRef.close())
-          .then(() => this.loader.off())
+    this.authService.SignUp(email, password, name)
+      .then(() => {
+        this.loader.off();
+        this.dialogRef.close();
       })
-      .catch((error) => {
-        window.alert(error.message);
-      });
   }
+
+  /*  sendOtp(): void {
+      console.log('yusgh')
+      this.loader.on();
+      // @ts-ignore
+      signInWithPhoneNumber(this.auth, '+77009965396', window['recaptchaVerifier'])
+        .then((confirmationResult: ConfirmationResult) => {
+          console.log(confirmationResult)
+          // @ts-ignore
+          window['confirmationResult'] = confirmationResult;
+          const timeout = setTimeout(() => {
+            document.getElementById('private-otp-field')?.focus();
+            clearTimeout(timeout);
+          }, 100);
+        })
+        .catch((error: any) => {
+          console.log(error['code']);
+          switch (error['code']) {
+            case 'auth/invalid-phone-number':
+              break;
+            default:
+              break;
+          }
+        })
+        .finally(() => this.loader.off());
+    }*//*TODO SEND OTP VERIFICATION*/
 }
