@@ -6,23 +6,41 @@
               [autoplay]="{ delay: 100, disableOnInteraction: false }" [pagination]="{ clickable: true }"
               [navigation]="false">
         <ng-template data-swiper-autoplay="6000" swiperSlide>
-          <img src="assets/images/banner-1.jpg" width="750" alt="">
+          <div class="relative">
+            <img src="assets/images/banner-1.jpg" width="750" alt="">
+            <div class="hover-state"></div>
+          </div>
         </ng-template>
         <ng-template data-swiper-autoplay="10000" class="swiper-slide" swiperSlide>
-          <img src="assets/images/banner-2.jpg" width="750" alt="">
+          <div class="relative">
+            <img src="assets/images/banner-2.jpg" width="750" alt="">
+            <div class="hover-state"></div>
+          </div>
         </ng-template>
         <ng-template data-swiper-autoplay="10000" class="swiper-slide" swiperSlide>
-          <img src="assets/images/banner-3.jpg" width="750" alt="">
+          <div class="relative">
+            <img src="assets/images/banner-3.jpg" width="750" alt="">
+            <div class="hover-state"></div>
+          </div>
         </ng-template>
         <ng-template data-swiper-autoplay="10000" class="swiper-slide" swiperSlide>
-          <img src="assets/images/banner-4.jpg" width="750" alt="">
+          <div class="relative">
+            <img src="assets/images/banner-4.jpg" width="750" alt="">
+            <div class="hover-state"></div>
+          </div>
         </ng-template>
       </swiper>
     </div>
     <div class="mini-banners height d-flex flex-col">
-      <div><img src="assets/images/banner-5.jpg" width="350" alt=""></div>
+      <div class="relative">
+        <img src="assets/images/banner-5.jpg" width="350" alt="">
+        <div class="hover-state"></div>
+      </div>
       <div class="spacer"></div>
-      <div><img src="assets/images/banner-6.jpg" width="350" alt=""></div>
+      <div class="relative">
+        <img src="assets/images/banner-6.jpg" width="350" alt="">
+        <div class="hover-state"></div>
+      </div>
     </div>
   </div>
 </div>
