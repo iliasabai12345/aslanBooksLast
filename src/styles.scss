@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/modals/modals.scss';
-
+@import 'swiper/swiper.min.css';
+@import '~swiper/swiper.min.css';
+@import '~swiper/modules/navigation/navigation.min.css';
+@import '~swiper/modules/pagination/pagination.min.css';
 html, body {
   height: 100%;
 }
@@ -422,6 +425,10 @@ body {
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -540,3 +547,4 @@ mat-spinner {
 .content-center {
   margin: 0 auto;
 }
+
