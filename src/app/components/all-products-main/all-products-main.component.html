@@ -2,33 +2,16 @@
   <div class="title-of-main-products pb-4">Все товары</div>
   <div class="d-flex">
     <swiper
-      [slidesPerView]="5"
+      [slidesPerView]="'auto'"
       [spaceBetween]="50"
     >
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
-      <ng-template swiperSlide>
-        <app-product-card-in-main></app-product-card-in-main>
-      </ng-template>
+      <ng-container *ngFor="let book of books">
+        <ng-template swiperSlide>
+          <app-product-card-in-main
+            [book]="book"
+          ></app-product-card-in-main>
+        </ng-template>
+      </ng-container>
     </swiper>
   </div>
 </div>

@@ -8,17 +8,22 @@ import {collection, collectionData, Firestore, query} from "@angular/fire/firest
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  books?: Observable<any[]>;
+  subjectBooks?: Observable<any[]>;
+  books: any;
 
   constructor(private firestore: Firestore) {
   }
 
   ngOnInit(): void {
     this.getBooks();
+    this.subjectBooks?.subscribe(res => {
+      this.books = res;
+      console.log(res)
+    })
   }
 
   private getBooks() {
-    this.books = collectionData(
+    this.subjectBooks = collectionData(
       query(
         collection(this.firestore, `/books`),
       ), {idField: 'id'}
