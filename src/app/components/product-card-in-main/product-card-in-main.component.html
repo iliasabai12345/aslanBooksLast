@@ -9,7 +9,7 @@
     <div class="d-flex justify-between">
       <div class="d-flex gap-2">
         <div class="price">{{book.price}}</div>
-        <div class="old_price">{{book.old_price}}</div>
+        <div class="old_price">{{book?.old_price}}</div>
       </div>
       <div>{{book.count !== 0 ? 'На складе' : 'Нет в наличий'}}</div>
     </div>
