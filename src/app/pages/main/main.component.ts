@@ -29,4 +29,24 @@ export class MainComponent implements OnInit {
       ), {idField: 'id'}
     ) as Observable<any[]>;
   }
+
+  get newest() {
+    return this.books?.filter((book: any) => book?.chapter == 'newest')
+  }
+
+  get popular_psychology() {
+    return this.books?.filter((book: any) => book?.chapter == 'popular_psychology')
+  }
+
+  get recipe() {
+    return this.books?.filter((book: any) => book?.chapter == 'recipe')
+  }
+
+  get investments() {
+    return this.books?.filter((book: any) => book?.chapter == 'investments')
+  }
+
+  get prose_chosen() {
+    return this.books?.filter((book: any) => book?.chapter == 'prose_chosen')
+  }
 }

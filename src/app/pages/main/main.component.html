@@ -3,11 +3,17 @@
     <div class="filters spacer width">
     </div>
     <div class="main d-flex flex-col gap-6">
+      <div class="fz-6 mt-4">Книги: <span class="grey-text">{{books?.length}}</span></div>
       <div class="pt-4 pb-4">
         <app-banner></app-banner>
       </div>
       <app-catalog></app-catalog>
-      <app-all-products-main [books]="books"></app-all-products-main>
+      <app-all-products-main [books]="books" [title]="'Все товары'"></app-all-products-main>
+      <app-all-products-main [books]="newest" [title]="'Книжные новинки'"></app-all-products-main>
+      <app-all-products-main [books]="popular_psychology" [title]="'Популярная психология 2022'"></app-all-products-main>
+      <app-all-products-main [books]="recipe" [title]="'Ни один рецепт не будет потерян!'"></app-all-products-main>
+      <app-all-products-main [books]="investments" [title]="'Все об инвестициях'"></app-all-products-main>
+      <app-all-products-main [books]="prose_chosen" [title]="'Проза, которую выбирают'"></app-all-products-main>
     </div>
   </div>
 </div>

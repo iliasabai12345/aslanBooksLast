@@ -1,16 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-all-products-main',
   templateUrl: './all-products-main.component.html',
   styleUrls: ['./all-products-main.component.scss']
 })
-export class AllProductsMainComponent implements OnInit {
+export class AllProductsMainComponent{
   @Input() books: any;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Input() title: any;
 }
