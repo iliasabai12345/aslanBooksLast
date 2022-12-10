@@ -109,4 +109,13 @@
     <mat-icon color="primary" aria-hidden="true" aria-label="Example home icon" fontIcon="contacts"></mat-icon>
     Контакты
   </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+    *ngIf="userName && userIsAdmin"
+    (click)="openAddModal()"
+  >
+    <mat-icon color="primary" aria-hidden="true" aria-label="Example home icon" fontIcon="auto_stories"></mat-icon>
+    Добавить книгу
+  </button>
 </mat-menu>

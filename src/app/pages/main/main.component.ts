@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {collection, collectionData, Firestore, query} from "@angular/fire/firestore";
+import {ListenerService} from "../../shared/services/listener.service";
 
 @Component({
   selector: 'app-main',
@@ -11,14 +12,15 @@ export class MainComponent implements OnInit {
   subjectBooks?: Observable<any[]>;
   books: any;
 
-  constructor(private firestore: Firestore) {
+  constructor(private firestore: Firestore,
+              private listenerService: ListenerService) {
   }
 
   ngOnInit(): void {
     this.getBooks();
     this.subjectBooks?.subscribe(res => {
       this.books = res;
-      console.log(res)
+      this.listenerService.books$.next(res);
     })
   }
 

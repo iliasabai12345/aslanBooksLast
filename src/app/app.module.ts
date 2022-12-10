@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -21,6 +20,8 @@ import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 import {HeaderModule} from "./components/header/header.module";
 import {FooterModule} from "./components/footer/footer.module";
 import {MainModule} from "./pages/main/main.module";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {ProductDetailModule} from "./pages/product-detail/product-detail.module";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import {MainModule} from "./pages/main/main.module";
     provideStorage(() => getStorage()),
     HeaderModule,
     FooterModule,
-    MainModule
+    MainModule,
+    MatSnackBarModule,
+    ProductDetailModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService,

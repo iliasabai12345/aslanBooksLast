@@ -6,7 +6,7 @@
     <img [src]="book.img_url" alt="" width="166" class="content-center">
     <div class="title heading">{{book.title}}</div>
     <div class="d-flex flex-col">
-      <div class="description">{{book.details[5].value}}</div>
+      <div class="description" *ngIf="book?.date">{{book?.date}}</div>
       <div class="description">{{book.author}}</div>
     </div>
     <div class="d-flex justify-between">
@@ -14,7 +14,7 @@
         <div class="price">{{book.price}}</div>
         <div class="old_price">{{book?.old_price}}</div>
       </div>
-      <div>{{book.count !== '0' ? 'На складе' : 'Нет в наличий'}}</div>
+      <div>{{book.count !== 0 ? 'На складе' : 'Нет в наличий'}}</div>
     </div>
   </div>
   <div class="pr-2 pl-2">

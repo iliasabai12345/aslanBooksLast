@@ -1,0 +1,180 @@
+<div class="wrapper d-flex flex-col height">
+  <div class="header px-4 fz-5 fw600 d-flex align-center">Добавить книгу</div>
+  <div class="spacer px-4 scroll ">
+    <form [formGroup]="form">
+      <div class="content d-flex justify-between gap-6">
+        <!--first column-->
+        <div class="">
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Код товара</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'sku'" (input)="checkBook()">
+            <mat-hint *ngIf="checkInFire" style="color:red;font-weight: 600">Эта книга уже существует</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Название</mat-label>
+            <input matInput placeholder="Название" [formControlName]="'title'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Автор</mat-label>
+            <input matInput placeholder="Автор" [formControlName]="'author'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Цена</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'price'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Старая цена</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'old_price'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Серия</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'series'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Описание товара</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'description_ru'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Фото книги</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'img_url'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Описание на казахском</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'description_kz'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Количество</mat-label>
+            <input matInput placeholder="Код товара" [formControlName]="'count'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Детали(ISBN)</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'ISBN'">
+          </mat-form-field>
+        </div>
+        <!--second column-->
+        <div class="">
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Детали(Высота издания)</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'height'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Детали(Ширина издания)</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'width'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Детали(Количество страниц)</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'page_count'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Детали(Дата выхода)</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'date'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Детали(Толщина издания)</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'thickness'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Издательство</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'present_house'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Издательство описание</mat-label>
+            <input matInput placeholder="Издательство описание" [formControlName]="'present_house_description'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Издательство описание на казахском</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'present_house_description_kz'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Фото автора</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'img_author_url'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Информация об авторе</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'author_info_ru'">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="inputs">
+            <mat-label>Информация об авторе на казахском</mat-label>
+            <input matInput placeholder="Placeholder" [formControlName]="'author_info_kz'">
+          </mat-form-field>
+        </div>
+      </div>
+      <!--selects-->
+      <div class="content">
+        <div class="fw600 fz-4 mt-4 mb-4">Категория</div>
+        <mat-form-field
+          appearance="outline" class="width"
+
+        >
+          <mat-label>Категория</mat-label>
+          <mat-select
+            [formControlName]="'category'"
+            (selectionChange)="categoryChange()"
+          >
+            <mat-option
+              *ngFor="let category of category"
+              [value]="category.value"
+            >
+              {{category.name_ru + ' | ' + category.name_kz}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!--Каталог-->
+        <div class="fw600 fz-4 mb-4">Каталог</div>
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Каталог</mat-label>
+          <mat-select
+            [formControlName]="'catalog'"
+            (selectionChange)="catalogChange()"
+          >
+            <mat-option
+              [value]="catalog.value"
+              *ngFor="let catalog of catalog"
+            >
+              {{catalog.value ? catalog.name_ru + ' | ' + catalog.name_kz : 'Нет'}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!--Разделы-->
+        <div class="fw600 fz-4 mb-4">Разделы</div>
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Разделы</mat-label>
+          <mat-select
+            [formControlName]="'chapter'"
+            (selectionChange)="chapterChange()"
+          >
+            <mat-option
+              [value]="chapter.value"
+              *ngFor="let chapter of chapters"
+            >
+              {{chapter.value ? chapter.name_ru + ' | ' + chapter.name_kz : 'Нет'}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+
+  </div>
+  <div class="footer px-4 ">
+    <div class="width height d-flex gap-4 align-center">
+      <button
+        class="spacer br-16"
+        mat-button
+        color="warn"
+        (click)="send()"
+      >
+        Отмена
+      </button>
+      <app-spinner-button
+        class="spacer"
+        [value]="'Добавить'"
+        (onClick)="send()"
+        [loading]="loader.loading"
+        [disabled]="form.invalid || !loader.loading"
+      >
+      </app-spinner-button>
+    </div>
+  </div>
+</div>

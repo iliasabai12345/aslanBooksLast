@@ -1,0 +1,102 @@
+.wrapper {
+}
+
+.header-content {
+  flex: 4;
+}
+
+header {
+  border-radius: 1rem;
+  background: #fff;
+}
+
+h1 {
+  color: var(--brand_yellow)
+}
+
+.author {
+  color: var(--light_blue);
+  width: fit-content;
+
+  &:hover {
+    color: var(--light_yellow);
+  }
+}
+
+.subscribe {
+  color: var(--gray2);
+}
+
+.price {
+  color: var(--red);
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: var(--gray2);
+}
+
+.series {
+  color: var(--light_blue);
+
+  &:hover {
+    color: var(--light_yellow)
+  }
+}
+
+.pay-info {
+  max-width: 450px;
+  background-color: var(--light_yellow);
+  padding: .5rem;
+  font-size: 12px;
+}
+
+.cart {
+  border: 1px solid gray;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.details {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.details_header {
+  color: var(--brand_yellow);
+}
+
+.details-item {
+  max-width: 400px;
+  width: 100%;
+}
+
+.present-house {
+  background: #fff;
+  border-radius: 1rem;
+}
+
+.selectable-link {
+  color: var(--light_blue);
+  width: fit-content;
+
+  &:hover {
+    color: var(--light_yellow);
+    cursor: pointer;
+  }
+}
+
+h2 {
+  color: var(--brand_yellow);
+}
+
+.author-info {
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.comments {
+  background-color: #fff;
+  border-radius: 1rem;
+}
