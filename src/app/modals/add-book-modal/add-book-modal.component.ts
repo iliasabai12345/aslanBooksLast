@@ -6,6 +6,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {ListenerService} from "../../shared/services/listener.service";
 import {Loader} from "../../shared/clases/loader";
 import {SnackbarService} from "../../shared/services/snackbar.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-book-modal',
@@ -21,6 +22,7 @@ export class AddBookModalComponent implements OnInit, OnDestroy {
   constructor(private firestore: Firestore,
               private listenerService: ListenerService,
               public snackbarService: SnackbarService,
+              public dialogRef: MatDialogRef<AddBookModalComponent>,
               public afs: AngularFirestore) {
   }
 
@@ -171,6 +173,7 @@ export class AddBookModalComponent implements OnInit, OnDestroy {
   }
 
   cancel() {
+    this.dialogRef.close();
   }
 
   reset() {

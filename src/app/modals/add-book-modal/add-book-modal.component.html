@@ -20,62 +20,62 @@
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Цена</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'price'">
+            <input matInput placeholder="Цена" [formControlName]="'price'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Старая цена</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'old_price'">
+            <input matInput placeholder="Старая цена" [formControlName]="'old_price'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Серия</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'series'">
+            <input matInput placeholder="Серия" [formControlName]="'series'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Описание товара</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'description_ru'">
+            <input matInput placeholder="Описание товара" [formControlName]="'description_ru'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Фото книги</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'img_url'">
+            <input matInput placeholder="Фото книги" [formControlName]="'img_url'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Описание на казахском</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'description_kz'">
+            <input matInput placeholder="Описание на казахском" [formControlName]="'description_kz'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Количество</mat-label>
-            <input matInput placeholder="Код товара" [formControlName]="'count'">
+            <input matInput placeholder="Количество" [formControlName]="'count'" type="number">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Детали(ISBN)</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'ISBN'">
+            <input matInput placeholder="Детали(ISBN)" [formControlName]="'ISBN'">
           </mat-form-field>
         </div>
         <!--second column-->
         <div class="">
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Детали(Высота издания)</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'height'">
+            <input matInput placeholder="Детали(Высота издания)" [formControlName]="'height'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Детали(Ширина издания)</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'width'">
+            <input matInput placeholder="Детали(Ширина издания)" [formControlName]="'width'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Детали(Количество страниц)</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'page_count'">
+            <input matInput placeholder="Детали(Количество страниц)" [formControlName]="'page_count'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Детали(Дата выхода)</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'date'">
+            <input matInput placeholder="Детали(Дата выхода)" [formControlName]="'date'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Детали(Толщина издания)</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'thickness'">
+            <input matInput placeholder="Детали(Толщина издания)" [formControlName]="'thickness'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Издательство</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'present_house'">
+            <input matInput placeholder="Издательство" [formControlName]="'present_house'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Издательство описание</mat-label>
@@ -83,19 +83,19 @@
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Издательство описание на казахском</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'present_house_description_kz'">
+            <input matInput placeholder="Издательство описание на казахском" [formControlName]="'present_house_description_kz'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Фото автора</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'img_author_url'">
+            <input matInput placeholder="Фото автора" [formControlName]="'img_author_url'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Информация об авторе</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'author_info_ru'">
+            <input matInput placeholder="Информация об авторе" [formControlName]="'author_info_ru'">
           </mat-form-field>
           <mat-form-field appearance="outline" class="inputs">
             <mat-label>Информация об авторе на казахском</mat-label>
-            <input matInput placeholder="Placeholder" [formControlName]="'author_info_kz'">
+            <input matInput placeholder="Информация об авторе на казахском" [formControlName]="'author_info_kz'">
           </mat-form-field>
         </div>
       </div>
@@ -163,7 +163,8 @@
         class="spacer br-16"
         mat-button
         color="warn"
-        (click)="send()"
+        (click)="cancel()"
+        [disabled]="form.dirty"
       >
         Отмена
       </button>
