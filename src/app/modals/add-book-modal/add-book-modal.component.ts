@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {doc, Firestore, setDoc} from "@angular/fire/firestore";
 import {Subject, takeUntil} from "rxjs";
@@ -6,7 +6,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {ListenerService} from "../../shared/services/listener.service";
 import {Loader} from "../../shared/clases/loader";
 import {SnackbarService} from "../../shared/services/snackbar.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-book-modal',
@@ -18,11 +18,12 @@ export class AddBookModalComponent implements OnInit, OnDestroy {
   readonly destroy$: Subject<undefined> = new Subject<undefined>();
   loader = new Loader();
   checkInFire: boolean = false;
-
+  book?: any = this.data.book;
   constructor(private firestore: Firestore,
               private listenerService: ListenerService,
               public snackbarService: SnackbarService,
               public dialogRef: MatDialogRef<AddBookModalComponent>,
+              @Inject(MAT_DIALOG_DATA) private data: { book: string | number },
               public afs: AngularFirestore) {
   }
 
@@ -33,6 +34,7 @@ export class AddBookModalComponent implements OnInit, OnDestroy {
         console.log(res);
         this.books = res;
       })
+    this.book && this.editBook();
   }
 
   ngOnDestroy() {
@@ -194,5 +196,9 @@ export class AddBookModalComponent implements OnInit, OnDestroy {
   checkBook() {
     const sku = this.form.controls['sku'].getRawValue();
     this.checkInFire = !!this.books.find(book => book.sku === sku.trim())
+  }
+
+  editBook() {
+    this.form.patchValue(this.book);
   }
 }

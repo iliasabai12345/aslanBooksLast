@@ -6,7 +6,16 @@
     </div>
     <!--Product information-->
     <div class="header-content">
-      <h1 class="fw800">{{book?.title}}</h1>
+      <div class="d-flex width justify-between">
+        <h1 class="fw800">{{book?.title}}</h1>
+        <button
+          *ngIf="userIsAdmin"
+          mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+          (click)="openAddModal()"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
       <div class="author pointer pb-2">{{book?.author}}</div>
       <div class="fz-3 pb-4">Нет отзывов | <span class="subscribe pointer">Подписаться на новые отзывы</span></div>
       <div class="pb-2">Цена: <span class="price fw600 fz-4">{{book?.price}}</span></div>

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {doc, Firestore, onSnapshot} from "@angular/fire/firestore";
 import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../../shared/services/user.service";
+import {AddBookModalComponent} from "../../modals/add-book-modal/add-book-modal.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-product-detail',
@@ -10,7 +13,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ProductDetailComponent implements OnInit {
 
   constructor(private firestore: Firestore,
+              private readonly userService: UserService,
+              private readonly dialog: MatDialog,
               private activatedRoute: ActivatedRoute) {
+  }
+
+  get userIsAdmin() {
+    return this.userService.getUser()?.isAdmin;
   }
 
   book: any;
@@ -30,4 +39,12 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  openAddModal() {
+    console.log(this.book.sku)
+    this.dialog.open(AddBookModalComponent, {
+      width: '600px',
+      height: '80vh',
+      data: {book: this.book},
+    });
+  }
 }
