@@ -37,7 +37,7 @@
       >
         Серия: <span class="series pointer">{{book?.series}}</span>
       </div>
-      <div>{{book?.description_ru}}</div>
+      <div>{{language ? book?.description_ru : book?.description_kz}}</div>
     </div>
     <!--Product cart-->
     <div class="spacer">
@@ -119,7 +119,7 @@
     <div class="mb-2"><span class="selectable-link">{{book?.present_house}}</span>, Россия, <span
       class="selectable-link">все товары</span>
     </div>
-    <div>{{book?.present_house_description}}</div>
+    <div>{{language ? book?.present_house_description : book?.present_house_description_kz}}</div>
   </div>
 
   <div
@@ -131,7 +131,7 @@
       class="selectable-link">все товары</span></div>
     <div class="d-flex gap-4">
       <div *ngIf="book?.img_author_url"><img [src]="book?.img_author_url" alt="img" width="75"></div>
-      <div *ngIf="book?.author_info_ru">{{book?.author_info_ru}}</div>
+      <div *ngIf="book?.author_info_ru">{{language ?  book?.author_info_ru : book?.author_info_kz}}</div>
     </div>
   </div>
 

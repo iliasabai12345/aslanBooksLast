@@ -8,6 +8,8 @@ import {AuthService} from "../../shared/services/auth.service";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {getStorage, ref, uploadBytes} from "@angular/fire/storage";
 import {AddBookModalComponent} from "../../modals/add-book-modal/add-book-modal.component";
+import {ListenerService} from "../../shared/services/listener.service";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -17,15 +19,33 @@ import {AddBookModalComponent} from "../../modals/add-book-modal/add-book-modal.
 export class HeaderComponent implements OnInit {
   city: string = 'Алматы';
   file?: File | any;
+  destroy$: Subject<undefined> = new Subject<undefined>();
 
   constructor(public dialog: MatDialog,
               private storage: AngularFireStorage,
+              public listenerService: ListenerService,
               private authService: AuthService,
               private userService: UserService) {
   }
 
+  lang: string = 'русский'
+
   ngOnInit() {
-    console.log(this.userIsAdmin);
+    this.listenerService.language$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
+        localStorage.setItem('lang', res);
+      })
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(undefined);
+    this.destroy$.complete();
+  }
+
+  get language() {
+    // @ts-ignore
+    return JSON.parse(localStorage.getItem('lang'));
   }
 
   get userName() {

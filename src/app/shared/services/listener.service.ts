@@ -6,6 +6,7 @@ import {Subject} from "rxjs";
 })
 export class ListenerService {
   books$: Subject<any> = new Subject<any>();
+  language$: Subject<any> = new Subject<any>();
 
   constructor() {
   }

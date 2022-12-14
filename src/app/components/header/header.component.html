@@ -24,6 +24,21 @@
         </div>
         <div class="text-white fz-4 fw600">{{city}}</div>
       </div>
+      <div>
+        <div
+          class="language d-flex align-center"
+          [matMenuTriggerFor]="langMenu"
+        >
+          <button
+            mat-flat-button
+            style="background: #0a78d6;color: #fff"
+            class="s-flex align-center"
+          >
+            <mat-icon class="pr-2">translate</mat-icon>
+            <span class="text-white">{{lang}}</span>
+          </button>
+        </div>
+      </div>
       <div
         class="profile d-flex align-center gap-2 pointer"
         [matMenuTriggerFor]="menu"
@@ -117,5 +132,22 @@
   >
     <mat-icon color="primary" aria-hidden="true" aria-label="Example home icon" fontIcon="auto_stories"></mat-icon>
     Добавить книгу
+  </button>
+</mat-menu>
+
+<mat-menu #langMenu="matMenu">
+  <button
+    mat-menu-item
+    class="menu_btn"
+    (click)="listenerService.language$.next(true);lang = 'Русский'"
+  >
+    Русский
+  </button>
+  <button
+    mat-menu-item
+    class="menu_btn"
+    (click)="listenerService.language$.next(false);lang = 'Казакша'"
+  >
+    Казакша
   </button>
 </mat-menu>
