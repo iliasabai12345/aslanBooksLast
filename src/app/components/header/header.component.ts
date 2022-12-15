@@ -10,6 +10,7 @@ import {getStorage, ref, uploadBytes} from "@angular/fire/storage";
 import {AddBookModalComponent} from "../../modals/add-book-modal/add-book-modal.component";
 import {ListenerService} from "../../shared/services/listener.service";
 import {Subject, takeUntil} from "rxjs";
+import {LanguageService} from "../../shared/services/language.service";
 
 @Component({
   selector: 'app-header',
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
               private storage: AngularFireStorage,
               public listenerService: ListenerService,
               private authService: AuthService,
+              private languageService: LanguageService,
               private userService: UserService) {
   }
 
@@ -109,10 +111,14 @@ export class HeaderComponent implements OnInit {
   }
 
   openAddModal() {
-    const dialogRef = this.dialog.open(AddBookModalComponent, {
+    this.dialog.open(AddBookModalComponent, {
       width: '600px',
       height: '80vh',
       data: {selectedCity: this.city},
     });
+  }
+
+  setLanguage(b: boolean) {
+    this.languageService.setLanguage(b);
   }
 }

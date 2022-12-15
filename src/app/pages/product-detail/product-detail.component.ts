@@ -6,6 +6,7 @@ import {AddBookModalComponent} from "../../modals/add-book-modal/add-book-modal.
 import {MatDialog} from "@angular/material/dialog";
 import {ListenerService} from "../../shared/services/listener.service";
 import {Subject, takeUntil} from "rxjs";
+import {LanguageService} from "../../shared/services/language.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -17,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(private firestore: Firestore,
               private readonly userService: UserService,
               private readonly dialog: MatDialog,
+              private readonly languageService: LanguageService,
               private readonly listenerService: ListenerService,
               private activatedRoute: ActivatedRoute) {
   }
@@ -27,13 +29,11 @@ export class ProductDetailComponent implements OnInit {
 
   book: any;
   newPrice: number = 0;
-  language: boolean = true;
   readonly destroy$: Subject<undefined> = new Subject<undefined>()
 
   async ngOnInit() {
-    this.listenLanguageChange();
     const id = this.activatedRoute.snapshot.params['id'];
-    const unsub = onSnapshot(doc(this.firestore, "books", id.toString()), (doc) => {
+    onSnapshot(doc(this.firestore, "books", id.toString()), (doc) => {
       this.book = doc.data();
       if (doc.data()?.['old_price']) {
         const numberPattern = /\d+/g;
@@ -45,13 +45,6 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  listenLanguageChange() {
-    this.listenerService.language$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => {
-        this.language = res;
-      })
-  }
 
   openAddModal() {
     console.log(this.book.sku)
@@ -65,5 +58,9 @@ export class ProductDetailComponent implements OnInit {
   ngOnDestroy() {
     this.destroy$.next(undefined);
     this.destroy$.complete();
+  }
+
+  get language() {
+    return this.languageService.getLanguage();
   }
 }

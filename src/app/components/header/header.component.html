@@ -139,14 +139,14 @@
   <button
     mat-menu-item
     class="menu_btn"
-    (click)="listenerService.language$.next(true);lang = 'Русский'"
+    (click)="setLanguage(true);lang = 'Русский'"
   >
     Русский
   </button>
   <button
     mat-menu-item
     class="menu_btn"
-    (click)="listenerService.language$.next(false);lang = 'Казакша'"
+    (click)="setLanguage(false);lang = 'Казакша'"
   >
     Казакша
   </button>

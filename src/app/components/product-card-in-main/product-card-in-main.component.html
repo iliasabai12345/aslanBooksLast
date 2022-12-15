@@ -2,14 +2,12 @@
   class="wrapper pointer d-flex flex-col gap-1 text-align-center"
   [routerLink]="'/product-detail/' + book.sku"
 >
-  <div class=" p-2">
-    <img [src]="book.img_url" alt="" width="166" class="content-center">
-    <div class="title heading">{{book.title}}</div>
-    <div class="d-flex flex-col">
-      <div class="description" *ngIf="book?.date">{{book?.date}}</div>
-      <div class="description">{{book.author}}</div>
+  <div class="p-2">
+    <div class="img">
+      <img [src]="book.img_url" alt="" width="166" class="content-center">
     </div>
-    <div class="d-flex justify-between">
+    <div class="title heading">{{book.title}}</div>
+    <div class="d-flex justify-between spacer">
       <div class="d-flex gap-2">
         <div class="price">{{book.price}}</div>
         <div class="old_price">{{book?.old_price}}</div>
