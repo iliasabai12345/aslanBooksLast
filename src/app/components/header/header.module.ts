@@ -10,6 +10,7 @@ import {SignUpModule} from "../../modals/sign-up/sign-up.module";
 import {SignInModule} from "../../modals/sign-in/sign-in.module";
 import {FormsModule} from "@angular/forms";
 import {AddBookModalModule} from "../../modals/add-book-modal/add-book-modal.module";
+import {ContactsModule} from "../../pages/contacts/contacts.module";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {AddBookModalModule} from "../../modals/add-book-modal/add-book-modal.mod
     SignUpModule,
     SignInModule,
     FormsModule,
-    AddBookModalModule
+    AddBookModalModule,
+    ContactsModule
   ],
   exports: [HeaderComponent]
 })

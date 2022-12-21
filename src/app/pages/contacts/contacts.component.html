@@ -1,0 +1,45 @@
+<div class="wrapper height p-4">
+  <div class="container">
+    <h1 class="fw600">Контактная информация</h1>
+    <main class="d-flex justify-between gap-4">
+      <div class="mt-2">
+        <ul class="ml-4 d-flex flex-col gap-6">
+          <li>
+            <b class="fz-4">Номер телефона</b>
+            <br>
+            <a href="tel:+77776487657" class="info">+7 777 648 76 57</a>
+          </li>
+          <li>
+            <b class="fz-4">Почта гугл</b>
+            <br>
+            <a href="mailto:aslanbakbergen05@gmail.com" class="info">aslanbakbergen05@gmail.com</a>
+          </li>
+          <li>
+            <b class="fz-4">Почта mail</b>
+            <br>
+            <a href="mailto:aslanbakbergen05@mail.ru" class="info">aslanbakbergen05@mail.ru</a>
+          </li>
+          <li>
+            <b class="fz-4">Telegram</b>
+            <br>
+            <a href="https://t.me/AslanBakbergen" target="_blank" class="info">AslanBakbergen</a>
+          </li>
+          <li>
+            <b class="fz-4">Whatsapp</b>
+            <br>
+            <a href="https://wa.me/+77776487657" target="_blank" class="info">+7 777 648 76 57</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="d-flex justify-between width">
+          <h3 class="fw800">Главный оффис</h3>
+          <mat-slide-toggle color="primary" [(ngModel)]="toggle" (ngModelChange)="changeMapVision()">Ночной режим</mat-slide-toggle>
+        </div>
+        <div class="relative map-wrapper">
+          <div id="map" class="map"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

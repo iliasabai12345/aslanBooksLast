@@ -35,6 +35,10 @@ body {
   --orange: #FF9A03;
   --green: #739C12;
 }
+[class*="copyrights-pane"] {
+  display: none !important;
+}
+
 
 .main-btn {
   border-radius: 1rem !important;

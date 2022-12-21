@@ -1,0 +1,31 @@
+.map {
+  background: #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+* {
+  text-decoration: none !important;
+}
+
+main {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.map-wrapper {
+  width: 800px;
+  height: 500px;
+}
+
+.wrapper {
+}
+
+.info {
+  color: var(--light_blue);
+  font-weight: 600;
+}

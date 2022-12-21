@@ -11,6 +11,7 @@ import {AddBookModalComponent} from "../../modals/add-book-modal/add-book-modal.
 import {ListenerService} from "../../shared/services/listener.service";
 import {Subject, takeUntil} from "rxjs";
 import {LanguageService} from "../../shared/services/language.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
               public listenerService: ListenerService,
               private authService: AuthService,
               private languageService: LanguageService,
+              private readonly router: Router,
               private userService: UserService) {
   }
 
@@ -105,7 +107,7 @@ export class HeaderComponent implements OnInit {
     console.log(file.name)
     const storage = getStorage()
     const storageRef = ref(storage, 'some-child');
-    uploadBytes(storageRef, this.file).then((snapshot) => {
+    uploadBytes(storageRef, this.file).then(() => {
       console.log('Uploaded a blob or file!');
     });
   }
@@ -120,5 +122,9 @@ export class HeaderComponent implements OnInit {
 
   setLanguage(b: boolean) {
     this.languageService.setLanguage(b);
+  }
+
+  toContactsPage() {
+    this.router.navigate(['/contacts']).then();
   }
 }
