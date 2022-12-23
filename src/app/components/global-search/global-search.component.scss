@@ -1,0 +1,37 @@
+.wrapper {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  z-index: 20;
+  background-color: #fff;
+  border-radius: 1rem;
+  max-width: 1200px;
+  width: 60vw;
+  height: 70vh;
+}
+
+.book {
+  border-radius: 1rem;
+  border: 1px solid #d7d7d7;
+  height: 210px;
+  width: 150px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.img {
+  width: 130px;
+  height: 190px;
+}
+
+.book-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

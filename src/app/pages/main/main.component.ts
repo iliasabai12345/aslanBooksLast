@@ -21,6 +21,7 @@ export class MainComponent implements OnInit {
     this.subjectBooks?.subscribe(res => {
       this.books = res;
       this.listenerService.books$.next(res);
+      localStorage.setItem('books', JSON.stringify(res));
     })
   }
 

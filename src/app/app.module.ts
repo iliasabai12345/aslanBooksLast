@@ -22,6 +22,13 @@ import {FooterModule} from "./components/footer/footer.module";
 import {MainModule} from "./pages/main/main.module";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {ProductDetailModule} from "./pages/product-detail/product-detail.module";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -47,7 +54,16 @@ import {ProductDetailModule} from "./pages/product-detail/product-detail.module"
     FooterModule,
     MainModule,
     MatSnackBarModule,
-    ProductDetailModule
+    ProductDetailModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      useDefaultLang: false
+    })
   ],
   providers: [
     ScreenTrackingService,UserTrackingService,

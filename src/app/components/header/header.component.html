@@ -1,15 +1,39 @@
 <div class="wrapper width d-flex align-center">
   <div class="container d-flex align-center width">
-    <div class="text-white fw600 pointer fz-8 pr-6 d-flex align-center">
+    <div
+      class="text-white fw600 pointer fz-8 pr-6 d-flex align-center"
+      [routerLink]="'/'"
+    >
       <div class="d-flex align-center pr-1">
-        <img src="https://play-lh.googleusercontent.com/wbqcLeR1gDjooByaxujaEIzMto6dONYxC7VP_o5-04IZbwDm49oiY1gt4cq3nqicF7I" width="32px" height="32px" alt="">
+        <img
+          src="https://play-lh.googleusercontent.com/wbqcLeR1gDjooByaxujaEIzMto6dONYxC7VP_o5-04IZbwDm49oiY1gt4cq3nqicF7I"
+          width="32px" height="32px" alt="">
       </div>
       <div>Aslan_Books</div>
     </div>
-    <div class="search d-flex border-box width pr-6">
-      <input type="text" class="search-text pl-4" placeholder="Более 100 книг">
+    <!--Глобальный поиск-->
+    <div class="search d-flex border-box width pr-6 relative" style="z-index: 10">
+      <input
+        type="text"
+        class="search-text pl-4"
+        placeholder="Более 100 книг"
+        (input)="globalSearch(search.value)"
+        #search
+      >
       <input type="button" class="search-button pointer border-none fw600" value="Найти">
+      <app-global-search
+        *ngIf="showGlobalSearch"
+        [search$]="search$"
+        (closeSearchModal)="showGlobalSearch = false; search.value = ''"
+      ></app-global-search>
     </div>
+    <div
+      (click)="showGlobalSearch = false; search.value = ''"
+      *ngIf="showGlobalSearch"
+      class="backdrop"
+    ></div>
+
+    <!--Города-->
     <div class="right-content pl-6 d-flex justify-between align-center spacer">
       <div
         class="location d-flex gap-2 align-center pointer"
@@ -62,6 +86,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
 

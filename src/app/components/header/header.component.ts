@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   city: string = 'Алматы';
   file?: File | any;
   destroy$: Subject<undefined> = new Subject<undefined>();
+  showGlobalSearch: boolean = false;
 
   constructor(public dialog: MatDialog,
               private storage: AngularFireStorage,
@@ -32,7 +33,8 @@ export class HeaderComponent implements OnInit {
               private userService: UserService) {
   }
 
-  lang: string = 'русский'
+  lang: string = 'русский';
+  search$: Subject<any> = new Subject<any>();
 
   ngOnInit() {
     this.listenerService.language$
@@ -126,5 +128,14 @@ export class HeaderComponent implements OnInit {
 
   toContactsPage() {
     this.router.navigate(['/contacts']).then();
+  }
+
+  globalSearch(value: any) {
+    if (value.length) {
+      this.showGlobalSearch = true;
+      this.search$.next(value);
+    } else {
+      this.showGlobalSearch = false;
+    }
   }
 }

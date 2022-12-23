@@ -9,6 +9,17 @@
   max-width: 600px;
 }
 
+.backdrop {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: .6;
+}
+
 .search-text {
   width: 85%;
 

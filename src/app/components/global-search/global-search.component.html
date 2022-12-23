@@ -1,0 +1,25 @@
+<div class="wrapper d-flex flex-col height">
+  <h2 class="px-4 pt-4">Найдено книг: {{filteredBooks?.length}}</h2>
+  <div class="px-4 spacer scroll mb-4 d-flex justify-between flex-wrap gap-row-4">
+    <div
+      *ngFor="let book of filteredBooks"
+      class="book d-flex flex-col"
+      (click)="navigate(book.sku); closeSearchModal.emit()"
+    >
+      <div
+        class="img width"
+        style="margin: auto"
+      >
+        <img
+          [src]="book.img_url"
+          alt="img"
+          loading="lazy"
+          width="100"
+          class="block"
+          style="margin: auto"
+        >
+      </div>
+      <div class="book-title fz-3 fw600 px-4">{{book?.title}}</div>
+    </div>
+  </div>
+</div>
