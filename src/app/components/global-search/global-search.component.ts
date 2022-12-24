@@ -29,7 +29,7 @@ export class GlobalSearchComponent implements OnInit {
     this.search$
       .pipe(
         takeUntil(this.destroy$),
-        delay(1000)
+        delay(1500)
       )
       .subscribe((value: string) => {
         this.filterBooks(value);
@@ -55,13 +55,9 @@ export class GlobalSearchComponent implements OnInit {
   }
 
   filterBooks(val: string) {
-    console.log(val);
     this.filteredBooks = this.books.filter((res: any) => {
       return res.title.toLowerCase().includes(val) || res.sku.toString().includes(val);
     });
-    console.log(this.filteredBooks);
-    console.log(this.books);
-    console.log(this.booksInLocalstorage);
   }
 
   navigate(sku: any) {

@@ -9,9 +9,11 @@ export class LanguageService {
   }
 
   language: boolean = true;
+  lngCode: string = 'ru';
 
-  setLanguage(value: boolean) {
+  setLanguage(value: boolean, code?: any) {
     this.language = value;
+    this.lngCode = code;
   }
 
   getLanguage() {

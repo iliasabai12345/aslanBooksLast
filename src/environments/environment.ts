@@ -12,7 +12,9 @@ export const environment = {
     appId: "1:101029384236:web:23790f633505a166a7c189",
     measurementId: "G-ZQVCC4SPL3"
   },
-  production: false
+  production: false,
+  locales: ['kz', 'ru'],
+  defaultLocale: 'en',
 };
 
 /*
