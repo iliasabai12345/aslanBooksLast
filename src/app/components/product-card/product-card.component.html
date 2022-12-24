@@ -10,5 +10,5 @@
     </div>
     <div>{{book.count !== 0 ? 'На складе' : 'Нет в наличий'}}</div>
   </div>
-  <button mat-button class="to-cart">В корзину</button>
+  <app-to-cart [book]="book"></app-to-cart>
 </div>

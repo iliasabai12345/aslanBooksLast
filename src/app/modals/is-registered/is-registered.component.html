@@ -1,0 +1,14 @@
+<div class="wrapper d-flex flex-col height">
+  <h2
+    class="text-align-center spacer pt-5 d-flex align-center justify-center">
+    {{language ? 'Вы не зарегестрированы' : 'Сіз тіркелмегенсіз'}}
+  </h2>
+  <div class="footer d-flex">
+    <button mat-button color="warn" class="spacer fw600" (click)="close()">
+      {{language ? 'Отмена' : 'Бас тарту'}}
+    </button>
+    <button mat-button color="primary" class="spacer fw600" (click)="register()">
+      {{language ? 'Зарегестрироватся' : 'Тіркелу'}}
+    </button>
+  </div>
+</div>

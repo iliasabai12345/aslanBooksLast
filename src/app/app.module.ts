@@ -27,6 +27,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {BooksGroupModule} from "./pages/books-group/books-group.module";
+import { IsRegisteredComponent } from './modals/is-registered/is-registered.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IsRegisteredComponent
   ],
   imports: [
     BrowserModule,
