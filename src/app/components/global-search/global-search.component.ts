@@ -3,6 +3,7 @@ import {delay, Observable, Subject, takeUntil} from "rxjs";
 import {ListenerService} from "../../shared/services/listener.service";
 import {collection, collectionData, Firestore, query} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
+import {hideSPB} from "../../shared/functions/search-progressbar";
 
 @Component({
   selector: 'app-global-search',
@@ -33,6 +34,7 @@ export class GlobalSearchComponent implements OnInit {
       )
       .subscribe((value: string) => {
         this.filterBooks(value);
+        hideSPB();
       })
   }
 

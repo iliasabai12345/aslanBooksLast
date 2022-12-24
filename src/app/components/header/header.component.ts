@@ -12,6 +12,7 @@ import {ListenerService} from "../../shared/services/listener.service";
 import {Subject, takeUntil} from "rxjs";
 import {LanguageService} from "../../shared/services/language.service";
 import {Router} from "@angular/router";
+import {showSPB} from "../../shared/functions/search-progressbar";
 
 @Component({
   selector: 'app-header',
@@ -132,6 +133,7 @@ export class HeaderComponent implements OnInit {
 
   globalSearch(value: any) {
     if (value.length) {
+      showSPB();
       this.showGlobalSearch = true;
       this.search$.next(value);
     } else {
