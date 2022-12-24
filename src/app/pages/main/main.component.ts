@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {collection, collectionData, Firestore, query} from "@angular/fire/firestore";
 import {ListenerService} from "../../shared/services/listener.service";
 import {Router} from "@angular/router";
+import {LanguageService} from "../../shared/services/language.service";
 
 @Component({
   selector: 'app-main',
@@ -15,6 +16,7 @@ export class MainComponent implements OnInit {
 
   constructor(private firestore: Firestore,
               private router: Router,
+              private languageService: LanguageService,
               private listenerService: ListenerService) {
   }
 
@@ -24,6 +26,8 @@ export class MainComponent implements OnInit {
       this.books = res;
       this.listenerService.books$.next(res);
       localStorage.setItem('books', JSON.stringify(res));
+      this.fillCategories();
+      console.log(this.categories);
     })
   }
 
@@ -61,5 +65,30 @@ export class MainComponent implements OnInit {
     } else {
       this.router.navigate(['/compilation' + '/' + 'all-books']).then();
     }
+  }
+
+  get language() {
+    return this.languageService.getLanguage();
+  }
+
+  categories: any[] = []
+  checkCategories: any[] = [];
+
+  fillCategories() {
+    this.books.forEach((book: any) => {
+      if (!this.checkCategories.includes(book.category)) {
+        const category = {
+          category: book.category,
+          category_name_kz: book.category_name_kz,
+          category_name_ru: book.category_name_ru,
+          qty: 1
+        };
+        this.checkCategories.push(book.category);
+        this.categories.push(category);
+      } else {
+        const findBook = this.categories.find(findBook => findBook.category === book.category);
+        findBook.qty = ++findBook.qty;
+      }
+    })
   }
 }

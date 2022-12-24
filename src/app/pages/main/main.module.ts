@@ -4,6 +4,7 @@ import {MainComponent} from "./main.component";
 import {CatalogModule} from "../../components/catalog/catalog.module";
 import {AllProductsMainModule} from "../../components/all-products-main/all-products-main.module";
 import {BannerModule} from "../../components/banner/banner.module";
+import {MatRippleModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {BannerModule} from "../../components/banner/banner.module";
         CommonModule,
         CatalogModule,
         AllProductsMainModule,
-        BannerModule
+        BannerModule,
+        MatRippleModule
     ],
   exports: [MainComponent]
 })

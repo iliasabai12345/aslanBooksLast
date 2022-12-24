@@ -5,3 +5,24 @@
 .main {
   max-width: 1150px;
 }
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  &:hover {
+    color: #0a79d5;
+    background-color: #e7e7e7;
+  }
+}
+
+.categories {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: sticky;
+  top: 20px;
+}

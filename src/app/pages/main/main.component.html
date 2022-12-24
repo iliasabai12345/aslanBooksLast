@@ -1,19 +1,41 @@
 <div class="container">
-  <div class="d-flex justify-between width">
+  <div class="d-flex justify-between width gap-4">
     <div class="filters spacer width">
+      <h2
+        class="mt-4"
+        style="margin-bottom: 40px"
+      >
+        {{language ? 'Разделы: ' : 'Бөлімдер: '}} <span class="grey-text">{{categories?.length}}</span>
+      </h2>
+      <div class="categories">
+        <div
+          *ngFor="let category of categories"
+          class="category px-4"
+          style="font-size: 14px"
+          matRipple
+        >
+          <div>{{language ? category.category_name_ru : category.category_name_kz}}</div>
+          <div class="fz-3 fw600">({{category.qty}})</div>
+        </div>
+      </div>
     </div>
     <div class="main d-flex flex-col gap-6">
-      <div class="fz-6 mt-4">Книги: <span class="grey-text">{{books?.length}}</span></div>
-      <div class="pt-4 pb-4">
+      <h2 class="fz-6 mt-4">{{language ? "Книги:" : 'Кітаптар:'}} <span class="grey-text">{{books?.length}}</span></h2>
+      <div>
         <app-banner></app-banner>
       </div>
       <app-catalog></app-catalog>
       <app-all-products-main (onClick)="toChapter()" [books]="books" [title]="'Все товары'"></app-all-products-main>
-      <app-all-products-main (onClick)="toChapter('newest')" [books]="newest" [title]="'Книжные новинки'"></app-all-products-main>
-      <app-all-products-main (onClick)="toChapter('popular_psychology')" [books]="popular_psychology" [title]="'Популярная психология 2022'"></app-all-products-main>
-      <app-all-products-main (onClick)="toChapter('recipe')" [books]="recipe" [title]="'Ни один рецепт не будет потерян!'"></app-all-products-main>
-      <app-all-products-main (onClick)="toChapter('investments')" [books]="investments" [title]="'Все об инвестициях'"></app-all-products-main>
-      <app-all-products-main (onClick)="toChapter('prose_chosen')" [books]="prose_chosen" [title]="'Проза, которую выбирают'"></app-all-products-main>
+      <app-all-products-main (onClick)="toChapter('newest')" [books]="newest"
+                             [title]="'Книжные новинки'"></app-all-products-main>
+      <app-all-products-main (onClick)="toChapter('popular_psychology')" [books]="popular_psychology"
+                             [title]="'Популярная психология 2022'"></app-all-products-main>
+      <app-all-products-main (onClick)="toChapter('recipe')" [books]="recipe"
+                             [title]="'Ни один рецепт не будет потерян!'"></app-all-products-main>
+      <app-all-products-main (onClick)="toChapter('investments')" [books]="investments"
+                             [title]="'Все об инвестициях'"></app-all-products-main>
+      <app-all-products-main (onClick)="toChapter('prose_chosen')" [books]="prose_chosen"
+                             [title]="'Проза, которую выбирают'"></app-all-products-main>
     </div>
   </div>
 </div>
