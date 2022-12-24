@@ -1,12 +1,18 @@
 <div class="wrapper">
-  <div class="d-flex justify-between">
+  <div
+    class="d-flex"
+    style="gap:55px"
+  >
     <div class="banner">
       <swiper [loop]="true" [autoHeight]="true" [allowTouchMove]="true"
               [spaceBetween]="20"
               [autoplay]="{ delay: 100, disableOnInteraction: false }" [pagination]="{ clickable: true }"
               [navigation]="false">
         <ng-template data-swiper-autoplay="6000" swiperSlide>
-          <div class="relative">
+          <div
+            class="relative"
+            [routerLink]="'/product-detail/2515776'"
+          >
             <img src="assets/images/banner-1.jpg" width="750" alt="">
             <div class="hover-state"></div>
           </div>
