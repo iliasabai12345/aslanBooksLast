@@ -1,6 +1,6 @@
 <button
   mat-button class="to-cart"
-  (click)="toCart()"
+  (click)="toCart(); $event.stopPropagation()"
 >
   {{language ? 'В корзину' : 'Себетке'}}
 </button>
