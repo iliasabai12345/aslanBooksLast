@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from "../environments/environment";
+import {NavigationEnd, NavigationStart, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,17 @@ import {environment} from "../environments/environment";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService,
+              private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        window.scrollTo({top: 400, behavior: 'smooth'})
+      }
+
+      if (event instanceof NavigationEnd) {
+        window.scrollTo({top: 400, behavior: 'smooth'})
+      }
+    })
   }
 
   ngOnInit(): void {
