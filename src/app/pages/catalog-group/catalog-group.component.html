@@ -1,0 +1,8 @@
+<div class="container">
+  <h2></h2>
+  <div class="d-flex flex-wrap justify-between gap-4">
+    <div *ngFor="let book of books">
+      <app-product-card [book]="book"></app-product-card>
+    </div>
+  </div>
+</div>

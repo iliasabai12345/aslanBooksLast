@@ -3,6 +3,7 @@
     <div
       *ngFor="let catalog of catalog"
       class="catalog"
+      (click)="toCatalog(catalog.route)"
     >
       <img width="200" [src]="catalog.src" alt="img">
     </div>
