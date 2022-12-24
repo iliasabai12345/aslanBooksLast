@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {collection, collectionData, Firestore, query, where} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {LanguageService} from "../../shared/services/language.service";
 
 @Component({
   selector: 'app-books-group',
@@ -13,6 +14,7 @@ export class BooksGroupComponent implements OnInit {
   books: any = [];
 
   constructor(private firestore: Firestore,
+              private languageService: LanguageService,
               private activatedRoute: ActivatedRoute) {
   }
 
@@ -41,5 +43,9 @@ export class BooksGroupComponent implements OnInit {
         ), {idField: 'id'}
       ) as Observable<any[]>;
     }
+  }
+
+  get language() {
+    return this.languageService.getLanguage();
   }
 }

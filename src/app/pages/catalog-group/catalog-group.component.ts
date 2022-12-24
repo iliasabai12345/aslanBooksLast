@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {collection, collectionData, Firestore, query, where} from "@angular/fire/firestore";
 import {ActivatedRoute} from "@angular/router";
+import {LanguageService} from "../../shared/services/language.service";
 
 @Component({
   selector: 'app-catalog-group',
@@ -13,6 +14,7 @@ export class CatalogGroupComponent implements OnInit {
   books: any = [];
 
   constructor(private firestore: Firestore,
+              private languageService: LanguageService,
               private activatedRoute: ActivatedRoute) {
   }
 
@@ -26,11 +28,15 @@ export class CatalogGroupComponent implements OnInit {
   }
 
   private getBooks() {
-      this.subjectBooks = collectionData(
-        query(
-          collection(this.firestore, `/books`),
-          where("catalog", "==", this.catalog)
-        ), {idField: 'id'}
-      ) as Observable<any[]>;
-    }
+    this.subjectBooks = collectionData(
+      query(
+        collection(this.firestore, `/books`),
+        where("catalog", "==", this.catalog)
+      ), {idField: 'id'}
+    ) as Observable<any[]>;
+  }
+
+  get language() {
+    return this.languageService.getLanguage();
+  }
 }

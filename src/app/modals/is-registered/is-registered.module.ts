@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {IsRegisteredComponent} from "./is-registered.component";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [IsRegisteredComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [IsRegisteredComponent]
 })
-export class IsRegisteredModule { }
+export class IsRegisteredModule {
+}
