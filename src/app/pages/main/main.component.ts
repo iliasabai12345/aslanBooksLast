@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {collection, collectionData, Firestore, query} from "@angular/fire/firestore";
 import {ListenerService} from "../../shared/services/listener.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -13,6 +14,7 @@ export class MainComponent implements OnInit {
   books: any;
 
   constructor(private firestore: Firestore,
+              private router: Router,
               private listenerService: ListenerService) {
   }
 
@@ -51,5 +53,13 @@ export class MainComponent implements OnInit {
 
   get prose_chosen() {
     return this.books?.filter((book: any) => book?.chapter == 'prose_chosen')
+  }
+
+  toChapter(chapter?: string) {
+    if (chapter) {
+      this.router.navigate(['/compilation' + '/' + chapter]).then();
+    } else {
+      this.router.navigate(['/compilation' + '/' + 'all-books']).then();
+    }
   }
 }

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-all-products-main',
@@ -8,4 +8,5 @@ import {Component, Input} from '@angular/core';
 export class AllProductsMainComponent{
   @Input() books: any;
   @Input() title: any;
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
 }
