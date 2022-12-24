@@ -13,7 +13,8 @@ export class AppComponent {
               private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        window.scrollTo({top: 400, behavior: 'smooth'})
+        const content = document.getElementById('content');
+        content && content.scrollTo({top: 0, behavior: 'smooth'})
       }
 
       if (event instanceof NavigationEnd) {

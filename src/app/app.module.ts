@@ -26,6 +26,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {BooksGroupModule} from "./pages/books-group/books-group.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,7 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       useDefaultLang: false
     }),
-    MatProgressBarModule
+    MatProgressBarModule,
+    BooksGroupModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService,

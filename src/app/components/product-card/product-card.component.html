@@ -1,0 +1,14 @@
+<div class="wrapper p-4 pointer">
+  <div class="d-flex justify-center align-center img">
+    <img [src]="book.img_url" alt="" width="200" class="content-center">
+  </div>
+  <div class="title heading">{{book.title}}</div>
+  <div class="d-flex justify-between spacer">
+    <div class="d-flex gap-2 mb-2">
+      <div class="price">{{book.price}}</div>
+      <div class="old_price">{{book?.old_price}}</div>
+    </div>
+    <div>{{book.count !== 0 ? 'На складе' : 'Нет в наличий'}}</div>
+  </div>
+  <button mat-button class="to-cart">В корзину</button>
+</div>

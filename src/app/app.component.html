@@ -1,7 +1,12 @@
+<div>{{"BUTTONS.SEARCH_BUTTON" | translate}}</div>
+
 <div class="d-flex flex-col height app">
   <app-header></app-header>
   <mat-progress-bar mode="indeterminate" id="progressbar" style="visibility: hidden"></mat-progress-bar>
-  <div class="spacer scroll">
+  <div
+    class="spacer scroll"
+    id="content"
+  >
     <router-outlet></router-outlet>
   </div>
 </div>
