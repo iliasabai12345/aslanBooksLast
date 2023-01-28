@@ -2,7 +2,13 @@
   <header class="d-flex pt-4 pb-4 pr-4 pl-4 gap-6 mb-4">
     <!--Product image-->
     <div class="spacer">
-      <img [src]="book?.img_url" width="227" alt="img">
+      <img
+        [src]="book?.img_url"
+        style="cursor: zoom-in"
+        width="227"
+        alt="img"
+        (click)="openViewModal(book?.img_url)"
+      >
     </div>
     <!--Product information-->
     <div class="header-content">

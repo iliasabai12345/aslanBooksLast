@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ListenerService} from "../../shared/services/listener.service";
 import {Subject} from "rxjs";
 import {LanguageService} from "../../shared/services/language.service";
+import {ViewProductComponent} from "../../modals/view-product/view-product.component";
 
 @Component({
   selector: 'app-product-detail',
@@ -84,8 +85,16 @@ export class ProductDetailComponent implements OnInit {
       comment_text_kz: 'Басқа пайдаланушыларға таңдау жасауға көмектесіңіз-бұл зат туралы өз пікіріңізді бірінші болып бөлісіңіз. Пікірлерді тек тіркелген Интернет-дүкен пайдаланушылары қалдыра алады flip.kz. Пікір қалдыру үшін жүйеге кіріңіз немесе тіркеліңіз'
     },
     {
-      orange_text:'Никакого риска! Оплатить данный товар Вы можете при получении. У нас есть бесплатная доставка по Казахстану. Если возникли вопросы, пожалуйста, свяжитесь с нами удобным способом',
-      orange_text_kz:'Тәуекел жоқ! Сіз бұл өнімді алған кезде төлей аласыз. Бізде Қазақстан бойынша тегін жеткізу бар. Егер сұрақтар туындаса, бізге ыңғайлы түрде хабарласыңыз'
+      orange_text: 'Никакого риска! Оплатить данный товар Вы можете при получении. У нас есть бесплатная доставка по Казахстану. Если возникли вопросы, пожалуйста, свяжитесь с нами удобным способом',
+      orange_text_kz: 'Тәуекел жоқ! Сіз бұл өнімді алған кезде төлей аласыз. Бізде Қазақстан бойынша тегін жеткізу бар. Егер сұрақтар туындаса, бізге ыңғайлы түрде хабарласыңыз'
     }
   ]
+
+  openViewModal(img_url: string) {
+    this.dialog.open(ViewProductComponent, {
+      width: '600px',
+      height: '600px',
+      data: {imgurl: img_url},
+    });
+  }
 }
